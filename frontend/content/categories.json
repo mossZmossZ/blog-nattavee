@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Cloud Native",
+        "slug": "cloud-native",
+        "color": "#2563eb",
+        "icon": "cloud-native"
+    },
+    {
+        "name": "HomeLab",
+        "slug": "homelab",
+        "color": "#0ea5e9",
+        "icon": "homelab"
+    },
+    {
+        "name": "Networking",
+        "slug": "networking",
+        "color": "#3b82f6",
+        "icon": "networking"
+    },
+    {
+        "name": "Cloud",
+        "slug": "cloud",
+        "color": "#1d4ed8",
+        "icon": "cloud"
+    },
+    {
+        "name": "AI",
+        "slug": "ai",
+        "color": "#6366f1",
+        "icon": "ai"
+    }
+]
