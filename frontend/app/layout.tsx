@@ -16,6 +16,7 @@ export const metadata: Metadata = {
     "Kubernetes",
     "DevOps",
     "Blog",
+    "ETC",
   ],
 };
 

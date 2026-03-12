@@ -36,6 +36,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         'Networking': '#3b82f6',
         'Cloud': '#1d4ed8',
         'AI': '#6366f1',
+        'ETC': '#6b7280',
     };
 
     const categoryColor = categoryColorMap[post.category] || '#3b82f6';

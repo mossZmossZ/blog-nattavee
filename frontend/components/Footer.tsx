@@ -19,7 +19,7 @@ export default function Footer() {
                     </a>
                 </div>
                 <div className="footer-copy">
-                    © {currentYear} Nattavee Blog. All rights reserved. Built with Next.js & ❤️
+                    © {currentYear} Nattavee Blog. All rights reserved.
                 </div>
             </div>
         </footer>

@@ -28,5 +28,11 @@
         "slug": "ai",
         "color": "#6366f1",
         "icon": "ai"
+    },
+    {
+        "name": "ETC",
+        "slug": "etc",
+        "color": "#3b82f6",
+        "icon": "etc"
     }
 ]

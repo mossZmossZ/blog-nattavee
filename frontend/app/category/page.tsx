@@ -20,6 +20,7 @@ export default function CategoriesPage() {
         'Networking': '🌐',
         'Cloud': '☁️',
         'AI': '🤖',
+        'ETC': '📂',
     };
 
     return (

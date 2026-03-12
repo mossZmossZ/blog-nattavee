@@ -33,6 +33,7 @@ export default async function CategoryPage({ params }: PageProps) {
         'Networking': '🌐',
         'Cloud': '☁️',
         'AI': '🤖',
+        'ETC': '📂',
     };
 
     return (

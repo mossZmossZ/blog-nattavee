@@ -41,11 +41,13 @@ export default function Header() {
                         Categories
                     </Link>
                     <Link
-                        href="/admin"
-                        className="nav-admin"
+                        href="https://portfolio.nattavee.com"
+                        className="nav-portfolio"
                         onClick={() => setMenuOpen(false)}
+                        target="_blank"
+                        rel="noopener noreferrer"
                     >
-                        Admin
+                        About me
                     </Link>
                 </nav>
             </div>
