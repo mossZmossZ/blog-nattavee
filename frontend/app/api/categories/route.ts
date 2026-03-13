@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getAllCategories, addCategory, deleteCategory } from '@/lib/categories';
+import { auth } from '@/lib/auth';
 
 export async function GET() {
     try {
@@ -14,6 +15,12 @@ export async function GET() {
 }
 
 export async function POST(request: NextRequest) {
+    // Defense-in-depth: verify auth even though middleware also checks
+    const session = await auth();
+    if (!session?.user) {
+        return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
     try {
         const body = await request.json();
         const { name, color, icon } = body;
@@ -41,6 +48,12 @@ export async function POST(request: NextRequest) {
 }
 
 export async function DELETE(request: NextRequest) {
+    // Defense-in-depth: verify auth even though middleware also checks
+    const session = await auth();
+    if (!session?.user) {
+        return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
     try {
         const { searchParams } = new URL(request.url);
         const slug = searchParams.get('slug');
