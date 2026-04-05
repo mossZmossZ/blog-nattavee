@@ -7,10 +7,10 @@ import { FiArrowRight, FiBookOpen, FiTrendingUp } from 'react-icons/fi';
 
 export const dynamic = 'force-dynamic';
 
-export default function HomePage() {
-  const allPosts = getAllPosts();
-  const recentPosts = getRecentPosts(3);
-  const categories = getAllCategories();
+export default async function HomePage() {
+  const allPosts = await getAllPosts();
+  const recentPosts = await getRecentPosts(3);
+  const categories = await getAllCategories();
   const featuredPost = allPosts[0];
   const otherPosts = allPosts.slice(1);
 
@@ -21,7 +21,7 @@ export default function HomePage() {
         <div className="hero-content">
           <h1>Nattavee Blog</h1>
           <p>
-            Exploring Cloud Native, HomeLab, Networking, Cloud & AI — Tips,
+            Exploring Cloud Native, HomeLab, Networking, Cloud &amp; AI — Tips,
             tutorials, and hands-on guides for tech enthusiasts.
           </p>
           <div className="hero-stats">

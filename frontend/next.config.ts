@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  output: 'standalone',
   images: {
     remotePatterns: [
       {
@@ -9,8 +10,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  // Allow server-side file system operations
-  serverExternalPackages: ['gray-matter'],
+  serverExternalPackages: ['pg'],
 };
 
 export default nextConfig;

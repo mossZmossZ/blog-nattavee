@@ -1,5 +1,5 @@
 import { getAllCategories, getCategoryBySlug } from '@/lib/categories';
-import { getPostsByCategory, getAllPosts } from '@/lib/posts';
+import { getPostsByCategory } from '@/lib/posts';
 import { notFound } from 'next/navigation';
 import BlogCard from '@/components/BlogCard';
 import Sidebar from '@/components/Sidebar';
@@ -13,19 +13,19 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-    const categories = getAllCategories();
+    const categories = await getAllCategories();
     return categories.map((cat) => ({ slug: cat.slug }));
 }
 
 export default async function CategoryPage({ params }: PageProps) {
     const { slug } = await params;
-    const category = getCategoryBySlug(slug);
+    const category = await getCategoryBySlug(slug);
 
     if (!category) {
         notFound();
     }
 
-    const posts = getPostsByCategory(category.name);
+    const posts = await getPostsByCategory(category.name);
 
     const categoryIcons: Record<string, string> = {
         'Cloud Native': '☸️',

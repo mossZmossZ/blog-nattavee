@@ -3,10 +3,10 @@ import { getAllCategories } from '@/lib/categories';
 import { getAllPosts, getRecentPosts } from '@/lib/posts';
 import { FiFolder, FiClock, FiFileText } from 'react-icons/fi';
 
-export default function Sidebar() {
-    const categories = getAllCategories();
-    const allPosts = getAllPosts();
-    const recentPosts = getRecentPosts(5);
+export default async function Sidebar() {
+    const categories = await getAllCategories();
+    const allPosts = await getAllPosts();
+    const recentPosts = await getRecentPosts(5);
 
     // Count posts per category
     const categoryCounts: Record<string, number> = {};

@@ -5,9 +5,9 @@ import { FiGrid } from 'react-icons/fi';
 
 export const dynamic = 'force-dynamic';
 
-export default function CategoriesPage() {
-    const categories = getAllCategories();
-    const allPosts = getAllPosts();
+export default async function CategoriesPage() {
+    const categories = await getAllCategories();
+    const allPosts = await getAllPosts();
 
     const categoryCounts: Record<string, number> = {};
     allPosts.forEach((post) => {

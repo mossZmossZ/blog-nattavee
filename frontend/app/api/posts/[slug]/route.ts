@@ -9,7 +9,7 @@ interface RouteParams {
 export async function GET(request: NextRequest, { params }: RouteParams) {
     try {
         const { slug } = await params;
-        const post = getPostBySlug(slug);
+        const post = await getPostBySlug(slug);
 
         if (!post) {
             return NextResponse.json({ error: 'Post not found' }, { status: 404 });
@@ -25,7 +25,6 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
 }
 
 export async function PUT(request: NextRequest, { params }: RouteParams) {
-    // Defense-in-depth: verify auth even though middleware also checks
     const session = await auth();
     if (!session?.user) {
         return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -43,7 +42,7 @@ export async function PUT(request: NextRequest, { params }: RouteParams) {
             );
         }
 
-        const success = updatePost(slug, {
+        const success = await updatePost(slug, {
             title,
             category,
             excerpt: excerpt || '',
@@ -67,7 +66,6 @@ export async function PUT(request: NextRequest, { params }: RouteParams) {
 }
 
 export async function DELETE(request: NextRequest, { params }: RouteParams) {
-    // Defense-in-depth: verify auth even though middleware also checks
     const session = await auth();
     if (!session?.user) {
         return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -75,7 +73,7 @@ export async function DELETE(request: NextRequest, { params }: RouteParams) {
 
     try {
         const { slug } = await params;
-        const success = deletePost(slug);
+        const success = await deletePost(slug);
 
         if (!success) {
             return NextResponse.json({ error: 'Post not found' }, { status: 404 });
