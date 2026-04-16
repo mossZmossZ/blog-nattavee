@@ -19,10 +19,11 @@ export default async function HomePage() {
       {/* Hero Section */}
       <section className="hero">
         <div className="hero-content">
+          <p className="hero-kicker">Practical notes from real builds</p>
           <h1>Nattavee Blog</h1>
           <p>
-            Exploring Cloud Native, HomeLab, Networking, Cloud &amp; AI — Tips,
-            tutorials, and hands-on guides for tech enthusiasts.
+            Clear, hands-on writeups about Cloud Native, HomeLab, Networking,
+            Cloud, and AI. Built for engineers who want practical steps, not fluff.
           </p>
           <div className="hero-stats">
             <div className="hero-stat">
@@ -34,8 +35,8 @@ export default async function HomePage() {
               <div className="hero-stat-label">Categories</div>
             </div>
             <div className="hero-stat">
-              <div className="hero-stat-value">∞</div>
-              <div className="hero-stat-label">Knowledge</div>
+              <div className="hero-stat-value">100%</div>
+              <div className="hero-stat-label">Hands-on</div>
             </div>
           </div>
         </div>
