@@ -1,4 +1,4 @@
-import { getAllCategories, getCategoryBySlug } from '@/lib/categories';
+import { getCategoryBySlug } from '@/lib/categories';
 import { getPostsByCategory } from '@/lib/posts';
 import { notFound } from 'next/navigation';
 import BlogCard from '@/components/BlogCard';
@@ -10,11 +10,6 @@ export const dynamic = 'force-dynamic';
 
 interface PageProps {
     params: Promise<{ slug: string }>;
-}
-
-export async function generateStaticParams() {
-    const categories = await getAllCategories();
-    return categories.map((cat) => ({ slug: cat.slug }));
 }
 
 export default async function CategoryPage({ params }: PageProps) {

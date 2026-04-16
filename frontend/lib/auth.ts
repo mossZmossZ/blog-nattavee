@@ -12,6 +12,7 @@ for (const envVar of requiredEnvVars) {
 }
 
 export const authConfig: NextAuthConfig = {
+    trustHost: true,
     providers: [
         Credentials({
             name: 'Admin Login',
