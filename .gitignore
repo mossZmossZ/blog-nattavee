@@ -1,0 +1,7 @@
+# env files
+.env
+.env.*
+.github/prompts/*
+# IDE
+.vscode/
+.idea/

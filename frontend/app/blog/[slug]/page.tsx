@@ -1,4 +1,4 @@
-import { getAllPosts, getPostBySlugWithHtml } from '@/lib/posts';
+import { getPostBySlugWithHtml } from '@/lib/posts';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import CodeBlockEnhancer from '@/components/CodeBlockEnhancer';
@@ -8,11 +8,6 @@ export const dynamic = 'force-dynamic';
 
 interface PageProps {
     params: Promise<{ slug: string }>;
-}
-
-export async function generateStaticParams() {
-    const posts = getAllPosts();
-    return posts.map((post) => ({ slug: post.slug }));
 }
 
 export default async function BlogPostPage({ params }: PageProps) {

@@ -4,7 +4,7 @@ import { auth } from '@/lib/auth';
 
 export async function GET() {
     try {
-        const posts = getAllPosts();
+        const posts = await getAllPosts();
         return NextResponse.json(posts);
     } catch (error) {
         return NextResponse.json(
@@ -15,7 +15,6 @@ export async function GET() {
 }
 
 export async function POST(request: NextRequest) {
-    // Defense-in-depth: verify auth even though middleware also checks
     const session = await auth();
     if (!session?.user) {
         return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -32,7 +31,7 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        const slug = createPost({
+        const slug = await createPost({
             title,
             category,
             excerpt: excerpt || '',
